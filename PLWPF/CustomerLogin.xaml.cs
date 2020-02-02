@@ -104,7 +104,7 @@ namespace PLWPF
         //first name
         private void FirstName_OnLostFocus(object sender, RoutedEventArgs e)
         {
-            if (firstName.Text.Length == 0 || !firstName.Text.All(x => x == ' ' || char.IsLetter(x)) || !Utilities.Validation.IsValidName(firstName.Text))
+            if (firstName.Text.Length == 0 /*|| !firstName.Text.All(x => x == ' ' || char.IsLetter(x)) || !Utilities.Validation.IsValidName(firstName.Text)*/)
                 firstName.Background = Brushes.Red;
             else
                 firstName.BorderBrush = Brushes.Green;
