@@ -197,17 +197,17 @@
             HorizontalAlignment="Center"
             VerticalAlignment="Top">
                         <TextBlock
-                    x:Name="TextBlockUserName"
-                    Style="{StaticResource StyleTextBlock}"
-                    Text="User Name">
+                            x:Name="TextBlockUserName"
+                            Style="{StaticResource StyleTextBlock}"
+                            Text="User Name">
                         </TextBlock>
+                      
                         <TextBox x:Name="TextBoxUserName"
-                    Style="{StaticResource {x:Type TextBox}}"
-                    Text="{Binding UserName, Mode=OneWayToSource}"
-                    >
-
-
+                                 Style="{StaticResource {x:Type TextBox}}"
+                                 Text="{Binding UserName, Mode=OneWayToSource}" 
+                                 TextChanged="TextBoxUserName_TextChanged">
                         </TextBox>
+                     
                         <TextBlock
                     x:Name="PasswordBoxInWindowLogin"
                     Style="{StaticResource StyleTextBlock}"

@@ -18,7 +18,16 @@ namespace IDAL
         public static List<Customer> _customers;
         public static List<Host> _hosts;
       //  public static List<BankBranch> _bankBranches; 
-        public static SiteOwner _SiteOwner;
+      public static SiteOwner _SiteOwner; 
+      //    = new SiteOwner
+      //{
+      //    OwnerLogin = new Login
+      //    {
+      //        UserName = Configuration.AdminUser,
+      //        Password = Configuration.AdminPassword
+      //    }
+      //};
+        
 
         #region c-tor & d-tor
 
@@ -58,7 +67,15 @@ namespace IDAL
 
                 if (!File.Exists(XmlConfigurations.SiteOwnerPath))
                 {
-                    Tools.SaveToXML(new SiteOwner(), XmlConfigurations.SiteOwnerPath);
+                    Tools.SaveToXML(_SiteOwner = new SiteOwner()
+                    {
+                        OwnerLogin = new Login
+                        {
+                            UserName = Configuration.AdminUser,
+                            Password = Configuration.AdminPassword
+                        }
+
+                    }, XmlConfigurations.SiteOwnerPath);
                 }
 
                 if (!File.Exists(XmlConfigurations.BankBranchesPath))

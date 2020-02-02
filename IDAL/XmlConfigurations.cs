@@ -68,11 +68,11 @@ namespace IDAL
             Configuration.AdminUser =
                 Convert.ToString(ConfigRoot.Element("AdminUser")?.Value);
             Configuration.MinAgeForOrder =
-                Convert.ToUInt32(ConfigRoot.Element("AdminUser")?.Value);
+                Convert.ToUInt32(ConfigRoot.Element("MinAgeForOrder")?.Value);
             Configuration.MinDaysForOrder =
-                Convert.ToUInt32(ConfigRoot.Element("AdminUser")?.Value);
+                Convert.ToUInt32(ConfigRoot.Element("MinDaysForOrder")?.Value);
             Configuration.MaxMonthForOrder =
-                Convert.ToUInt32(ConfigRoot.Element("AdminUser")?.Value);
+                Convert.ToUInt32(ConfigRoot.Element("MaxMonthForOrder")?.Value);
         }
         public static Order GetAllXmlOrder(int orderKey)
         {

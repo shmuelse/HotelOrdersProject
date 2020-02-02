@@ -963,14 +963,14 @@ namespace BL
 
         public void AddHostingUnitImage(int hostUnitKey, string newImagePath)
         {
-            var photoPath = @"..\..\..\AccommodationImages\" + hostUnitKey + @".jpg";
+            var photoPath = @"AccommodationImages\" + hostUnitKey + @".jpg";
             (File.Create(photoPath)).Close();
             File.Copy(newImagePath, photoPath, true);
         }
 
         public void ChangeAccommodationImage(int accommodationKey, string newImagePath)
         {
-            var destination = @"..\..\..\TraineesImages\" + accommodationKey + @".jpg";
+            var destination = @"AccommodationImages\" + accommodationKey + @".jpg";
             File.Delete(destination);
             (File.Create(destination)).Close();
             File.Copy(newImagePath, destination, true);
@@ -978,7 +978,7 @@ namespace BL
 
         public void ChangeHostingUnitImage(int accommodationKey, string newImagePath)
         {
-            var destination = @"..\..\..\TraineesImages\" + accommodationKey + @".jpg";
+            var destination = @"HostingUnitImages\" + accommodationKey + @".jpg";
             File.Delete(destination);
             (File.Create(destination)).Close();
             File.Copy(newImagePath, destination, true);

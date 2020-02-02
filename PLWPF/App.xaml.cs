@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using BL;
 
 namespace PLWPF
 {
@@ -16,6 +17,7 @@ namespace PLWPF
         public static int numOfActivatedMainWindow = 0;
         void App_start(object sender, StartupEventArgs e)
         {
+            var bl = FactoryBl.GetInstance;
             Welcome window = new Welcome();
             window.Show();
         }
