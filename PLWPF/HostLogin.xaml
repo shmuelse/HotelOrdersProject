@@ -1,0 +1,507 @@
+﻿<Window x:Class="PLWPF.Host_contact"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PLWPF"
+        mc:Ignorable="d"
+        Title="hostPanel" 
+        Height="600" 
+        Width="1024"  
+        WindowStyle="None" 
+        FlowDirection="LeftToRight"
+        AllowsTransparency="True"
+        WindowState="Maximized"
+        Background="Transparent">
+    <Border CornerRadius="22"
+            BorderBrush="#FF006884"
+            BorderThickness="5">
+        <Border.Background>
+            <ImageBrush x:Name="EnterWindow" 
+                        ImageSource="Background/8939.jpg"
+                        AlignmentY="Bottom">
+
+            </ImageBrush>
+        </Border.Background>
+
+        <Grid 
+            x:Name="GridHostLoginDetails"
+            DataContext="{Binding hostWindow}"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            Height="auto"
+            Width="auto"
+
+        ShowGridLines="False" 
+      >
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20*"/>
+                <ColumnDefinition Width="20*"/>
+                <ColumnDefinition Width="20*"/>
+                <ColumnDefinition Width="20*"/>
+                <ColumnDefinition Width="20*"/>
+                <ColumnDefinition Width="20*"/>
+                <ColumnDefinition Width="20*"/>
+                <ColumnDefinition Width="20*"/>
+                <ColumnDefinition Width="20*"/>
+                <ColumnDefinition Width="20*"/>
+                <ColumnDefinition Width="0"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="38"/>
+                <RowDefinition Height="25*"/>
+                <RowDefinition Height="40*"/>
+                <RowDefinition Height="40*"/>
+                <RowDefinition Height="40*"/>
+                <RowDefinition Height="40*"/>
+                <RowDefinition Height="40*"/>
+                <RowDefinition Height="40*"/>
+                <RowDefinition Height="40*"/>
+                <RowDefinition Height="25*"/>
+                <RowDefinition Height="20"/>
+            </Grid.RowDefinitions>
+
+            <Border
+                Grid.Row="3"
+                Grid.Column="0"
+                Grid.ColumnSpan="10"
+                Grid.RowSpan="7"
+                Margin="40,0.2,40.4,26.8"
+                Background="White"
+                Opacity="0.6"
+                CornerRadius="35"/>
+
+
+            <WrapPanel Grid.Row="0"
+                   Grid.Column="8"
+                   Grid.ColumnSpan="2"
+                   
+                   HorizontalAlignment="Right"
+                   Margin="0,10,20,0"
+                   >
+
+
+                <Button Click="Button_Click_MinimizeWindow"
+                        Template="{StaticResource TitleBarButtons}"
+
+                        Width="25"
+                        Height="25"
+                        Background="Transparent"
+                        BorderThickness="0"
+                        MouseEnter="Button_MouseEnter"
+                        MouseLeave="Button_MouseLeave">
+                    <Button.Content>
+                        <Image
+                            Source="Buttons/minus-sign.png"
+/>
+                    </Button.Content>
+                </Button>
+
+                <Button
+                    Template="{StaticResource TitleBarButtons}"
+
+                Click="Button_Click_MaximizeWindow"
+                Width="25"
+                Height="25"
+                Background="Transparent"
+                BorderThickness="0"
+                Margin="10 0" MouseEnter="Button_MouseEnter"
+                MouseLeave="Button_MouseLeave">
+                    <Button.Content>
+                        <Image
+                            Source="Buttons/expand-button (1).png"/>
+                    </Button.Content>
+                </Button>
+                <Button Click="Button_Click_CloseWindow"
+                        Template="{StaticResource TitleBarButtons}"
+                        Width="25"
+                        Height="25"
+                        Background="Transparent"
+                        BorderThickness="0"
+                        MouseEnter="Button_MouseEnter"
+                        MouseLeave="Button_MouseLeave">
+                    <Button.Content>
+                        <Image Source="Buttons/closed.png"/>
+                    </Button.Content>
+                </Button>
+
+            </WrapPanel>
+
+
+
+            <StackPanel
+            Grid.Row="4"
+            Grid.Column="4"
+            Grid.ColumnSpan="2"
+            Grid.RowSpan="5"
+            Margin="0,25,0,0">
+
+
+
+                <TextBlock
+                    Style="{StaticResource StyleTextBlock}"
+                    FontSize="12">Bank Name</TextBlock>
+
+                <ComboBox
+                    Style="{StaticResource StyleOfComboBox}"
+                    x:Name="BankName"
+                    SelectedItem="{Binding BankBranchDetails.BankName, Mode=TwoWay}"
+                    
+                    FontSize="14"
+                >
+
+                </ComboBox>
+
+
+
+                <WrapPanel Height="auto"
+                       Width="auto"
+                       HorizontalAlignment="Left">
+                    <TextBlock
+                        Style="{StaticResource StyleTextBlock}" 
+                        FontSize="12">Bank num</TextBlock>
+                    <TextBlock
+                        Style="{StaticResource StyleTextBlock}"
+                        Margin="47,0,0,0"
+                        FontSize="12">Branch num</TextBlock>
+                </WrapPanel>
+                <WrapPanel
+                Width="auto"
+                HorizontalAlignment="Left"
+                Height="auto">
+                    <ComboBox
+                        Style="{StaticResource StyleOfComboBox}"
+                        x:Name="BankNum"
+                        SelectedItem="{Binding BankBranchDetails.BankNumber,Mode=TwoWay}"
+                    Width="100"
+                        FontSize="14"
+                    >
+
+                    </ComboBox>
+                    <ComboBox
+                        Style="{StaticResource StyleOfComboBox}"
+                        x:Name="BranchNum"
+                        SelectedItem="{Binding BankBranchDetails.BranchNumber, Mode=TwoWay}"
+                        Width="100"
+                        FontSize="14"
+                    >
+
+                    </ComboBox>
+
+
+
+
+                </WrapPanel>
+                <TextBlock
+                    Style="{StaticResource StyleTextBlock}"
+                    FontSize="12">Account Number</TextBlock>
+
+
+
+                <TextBox
+                    x:Name="AccountNumber"
+                    LostFocus="LastName_OnLostFocus"
+                    GotFocus="LastName_OnGotFocus"
+                    Text="{Binding BankAccountNumber, UpdateSourceTrigger=LostFocus}"
+                    Style="{StaticResource {x:Type TextBox}}"
+                    FontSize="16"
+                    MaxLength="15">
+
+                </TextBox>
+
+
+
+
+                <WrapPanel
+                Width="auto"
+                Height="auto"
+                >
+                    <TextBlock
+                        Style="{StaticResource StyleTextBlock}"
+                        FontSize="10">Have you already signed a direct debit</TextBlock>
+
+
+                    <CheckBox
+                        x:Name="DirectDebitSigned"
+                        Width="16"
+                        Height="14"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center" 
+                        Background="White" 
+                        BorderThickness="1"
+                        IsChecked="False"
+                />
+                </WrapPanel>
+            </StackPanel>
+
+
+            <StackPanel
+            Grid.Row="4"
+            Grid.Column="7"
+            Grid.ColumnSpan="2"
+            Grid.RowSpan="5"
+            Margin="0,25,0,0">
+
+                <TextBlock
+                    Style="{StaticResource StyleTextBlock}"
+                    FontSize="12">User Name</TextBlock>
+                <TextBox
+                    
+                    Style="{StaticResource {x:Type TextBox}}"
+                    Text="{Binding HostInfo.LoginDetails.UserName, UpdateSourceTrigger=LostFocus}"
+                    x:Name="UserName"
+                    LostFocus="UserName_OnLostFocus"
+                    GotFocus="UserName_OnGotFocus"
+                FontSize="16"
+                MaxLength="15">
+
+                    <TextBlock.Foreground>
+                        <LinearGradientBrush
+                        EndPoint="0.5,1"
+                        StartPoint="0.5,0">
+
+                            <GradientStop Color="#FF000280"
+                                      Offset="0"/>
+                            <GradientStop Color="#FF576E3D"
+                                      Offset="1"/>
+                        </LinearGradientBrush>
+
+                    </TextBlock.Foreground>
+                </TextBox>
+                <TextBlock
+                    Style="{StaticResource StyleTextBlock}"
+                    FontSize="12">Password</TextBlock>
+                <PasswordBox  
+                    Cursor="Pen"
+                    Style="{StaticResource {x:Type PasswordBox}}"
+                    x:Name="Password"
+                    LostFocus="PasswordBox_OnLostFocus"
+                    GotFocus="PasswordBox_OnGotFocus"
+                     FontSize="16"
+                >
+                </PasswordBox>
+                <Button Command="{Binding HostInfo.LoginDetails.Password, UpdateSourceTrigger=LostFocus}" 
+                        CommandParameter="{Binding ElementName=Password}"
+                        Visibility="Hidden"/>
+
+                <TextBlock
+                    Style="{StaticResource StyleTextBlock}"
+                    FontSize="8">
+                    You can use letters, numbers and periods
+                </TextBlock>
+                <TextBlock
+                    Style="{StaticResource StyleTextBlock}"
+                    FontSize="12">Confirme</TextBlock>
+
+                <PasswordBox  
+                    Cursor="Pen"
+                    Style="{StaticResource {x:Type PasswordBox}}"
+                    x:Name="PasswordConfirm"
+                    LostFocus="ConfirmPassword_OnLostFocus"
+                    GotFocus="ConfirmPassword_OnGotFocus"
+                    FontSize="16"
+                    Height="23"/>
+                <Button x:Name="Send"
+                        Style="{StaticResource {x:Type Button}}"
+                        Click="Send_Click"
+                        Width="200"
+                   
+                        Margin="0,60,0,0">
+                    Send
+                </Button>
+
+
+
+            </StackPanel>
+
+
+
+            <StackPanel
+            Grid.Row="4"
+            Grid.Column="1"
+            Grid.ColumnSpan="2"
+            Grid.RowSpan="6"
+            Margin="0,25,0,0">
+
+                <TextBlock
+                    Style="{StaticResource StyleTextBlock}"
+                    FontSize="12">First name</TextBlock>
+
+                <TextBox
+                    Style="{StaticResource {x:Type TextBox}}"
+                    Cursor="Pen"
+                    Text="{Binding HostInfo.FirstName, UpdateSourceTrigger=LostFocus}"
+                    x:Name="FirstName"
+                    LostFocus="FirstName_OnLostFocus"
+                    GotFocus="FirstName_OnGotFocus"
+                    FontSize="16" MaxLength="15">
+
+                </TextBox>
+
+
+                <TextBlock
+                    Style="{StaticResource StyleTextBlock}"
+                    FontSize="12">Last name</TextBlock>
+                <TextBox
+                    x:Name="LastName"
+                    LostFocus="LastName_OnLostFocus"
+                    GotFocus="LastName_OnGotFocus"
+                    Text="{Binding HostInfo.LastName, UpdateSourceTrigger=LostFocus}"
+                    Style="{StaticResource {x:Type TextBox}}"
+                    FontSize="16"
+                    MaxLength="15">
+
+                </TextBox>
+
+
+
+
+
+                <TextBlock
+                    Style="{StaticResource StyleTextBlock}"
+                    FontSize="12">ID number</TextBlock>
+
+                <TextBox
+                    x:Name="IdNum"
+                    LostFocus="LastName_OnLostFocus"
+                    GotFocus="LastName_OnGotFocus"
+                    Text="{Binding Id, UpdateSourceTrigger=LostFocus}"
+                    Style="{StaticResource {x:Type TextBox}}"
+                    FontSize="16"
+                    MaxLength="15">
+
+                </TextBox>
+
+
+                <TextBlock
+                    Style="{StaticResource StyleTextBlock}"
+                    FontSize="12">Gender</TextBlock>
+                <ComboBox
+                    Style="{StaticResource StyleOfComboBox}"
+                    x:Name="Gender"
+                    SelectedItem="{Binding HostInfo.Gender, UpdateSourceTrigger=LostFocus}"
+                    
+                    FontSize="14"
+                >
+
+                </ComboBox>
+
+
+                <TextBlock
+                    Style="{StaticResource StyleTextBlock}"
+                    FontSize="12">Date of Birth</TextBlock>
+                <DatePicker 
+                    SelectedDate="{Binding HostInfo.DateOfBirth, UpdateSourceTrigger=LostFocus, NotifyOnValidationError=true, ValidatesOnExceptions=true}"
+                    x:Name="DateOfBirth"
+                    IsTodayHighlighted ="True"
+                   
+                    FontSize="12" SelectedDateFormat="Short"
+                    BorderThickness="1"
+                    IsEnabled="True"
+                    SelectedDateChanged="DateBirth_OnSelectedDateChanged"
+                >
+
+
+
+                </DatePicker>
+
+
+                <TextBlock
+                    Style="{StaticResource StyleTextBlock}"
+                    FontSize="12">Phone number</TextBlock>
+                <TextBox
+                    Style="{StaticResource {x:Type TextBox}}"
+                    Text="{Binding HostInfo.PhoneNumber, UpdateSourceTrigger=LostFocus}"
+                    x:Name="PhoneNumber"
+                    LostFocus="Phone_OnLostFocus"
+                    GotFocus="Phone_OnGotFocus"
+                    FontSize="16"
+                    MaxLength="15">
+
+                </TextBox>
+
+                <TextBlock
+                    Style="{StaticResource StyleTextBlock}"
+                    FontSize="12">Email Address</TextBlock>
+
+                <TextBox
+                    Style="{StaticResource {x:Type TextBox}}"
+                    Text="{Binding HostInfo.EmailAddress, UpdateSourceTrigger=LostFocus}"
+                    x:Name="EmailAddress"
+                    LostFocus="Email_OnLostFocus"
+                    GotFocus="Email_OnGotFocus"
+                    FontSize="16"
+                    MaxLength="30">
+                </TextBox>
+
+            </StackPanel>
+
+
+
+
+            <TextBlock Grid.Row="1"
+                       Grid.RowSpan="2"
+                       Grid.Column="0"
+                       Grid.ColumnSpan="10"
+                       HorizontalAlignment="Center"
+                       Height="Auto"
+                       Width="Auto"
+                       FontSize="50"
+                       FontWeight="Bold"
+                       
+                       Style="{StaticResource TitleText}" 
+                       x:Name="TextBlockBeck" >
+                Host login details
+            </TextBlock>
+
+
+
+
+
+
+
+
+            <TextBlock
+                Grid.Column="1" 
+                Grid.Row="3"
+                Grid.ColumnSpan="2"
+                VerticalAlignment="Bottom"
+                TextAlignment="Center"
+                Style="{StaticResource StyleTextBlock}"
+                FontSize="12">Personal Information</TextBlock>
+            <TextBlock
+                Grid.Column="4" 
+VerticalAlignment="Bottom"
+                Grid.Row="3"
+                Grid.ColumnSpan="2"
+
+                TextAlignment="Center"
+                Style="{StaticResource StyleTextBlock}"
+                FontSize="12">Bank Account information</TextBlock>
+            <TextBlock
+                Grid.Column="7" 
+                Grid.Row="3"
+                Grid.ColumnSpan="2"
+VerticalAlignment="Bottom"
+                TextAlignment="Center"
+                Style="{StaticResource StyleTextBlock}"
+                FontSize="12">Create your account</TextBlock>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </Grid>
+    </Border>
+</Window>

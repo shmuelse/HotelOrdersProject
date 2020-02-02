@@ -1,0 +1,254 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EBF7C393-D943-44D0-BCFA-D7FCE9EE4ECA}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>PLWPF</RootNamespace>
+    <AssemblyName>PLWPF</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="AccomUnitUpdateWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CustomerLogin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HostLogin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LoginWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="NewGuestRequest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SiteOwnerPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Welcome.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="AccomUnitUpdateWindow.xaml.cs">
+      <DependentUpon>AccomUnitUpdateWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CustomerLogin.xaml.cs">
+      <DependentUpon>CustomerLogin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HostLogin.xaml.cs">
+      <DependentUpon>HostLogin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LoginWindow.xaml.cs">
+      <DependentUpon>LoginWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NewGuestRequest.xaml.cs">
+      <DependentUpon>NewGuestRequest.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SiteOwnerPanel.xaml.cs">
+      <DependentUpon>SiteOwnerPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Welcome.xaml.cs">
+      <DependentUpon>Welcome.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BE\BE.csproj">
+      <Project>{9032d316-b302-4806-96b1-fa65a77b0502}</Project>
+      <Name>BE</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BL\BL.csproj">
+      <Project>{87b70605-fa87-42ab-8255-562dac54c914}</Project>
+      <Name>BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Utilities\Utilities.csproj">
+      <Project>{6942cac4-3f3a-4f5c-b42f-03cefec2e264}</Project>
+      <Name>Utilities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Buttons\RegisterAsAGuest.png" />
+    <Resource Include="Buttons\SignInButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icones\pngtree___vector_five_star_hotel_icon_3774172_8w2_icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Background\8939.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Buttons\button_add-accommodation.png" />
+    <Resource Include="Buttons\button_add-image.png" />
+    <Resource Include="Buttons\button_add-unit.png" />
+    <Resource Include="Buttons\button_delete-accomodation.png" />
+    <Resource Include="Buttons\button_delete-unit.png" />
+    <Resource Include="Buttons\button_login.png" />
+    <Resource Include="Buttons\button_register-as-a-host.png" />
+    <Resource Include="Buttons\button_register.png" />
+    <Resource Include="Buttons\button_send.png" />
+    <Resource Include="Buttons\button_update.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Buttons\closed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Buttons\minus-sign.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Buttons\expand-button %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="CheckBoxItems\checked.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="CheckBoxItems\question.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="CheckBoxItems\cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Hotel Icons1\002-dinner.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Hotel Icons1\003-restaurant.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Hotel Icons1\026-bed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Hotel Icons1\bed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Hotel Icons1\kid-and-baby.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Hotel Icons1\021-bath.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Hotel Icons1\Prrivatebath.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Hotel Icons1\049-room-service.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Hotel Icons1\009-washing-machine.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Hotel Icons1\010-pool.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Hotel Icons1\006-spa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Hotel Icons1\gym.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Hotel Icons1\architecture-and-city.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Hotel Icons1\shed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Hotel Icons1\ferris-wheel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Hotel Icons1\014-air-conditioner.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Hotel Icons1\035-wifi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Hotel Icons1\024-tv.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Hotel Icons1\001-breakfast.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Hotel Icons1\jacuzzi.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
