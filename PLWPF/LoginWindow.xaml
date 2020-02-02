@@ -1,4 +1,4 @@
-﻿<Window x:Class="PLWPF.LoginWindow"
+﻿ <Window x:Class="PLWPF.LoginWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -197,17 +197,20 @@
             HorizontalAlignment="Center"
             VerticalAlignment="Top">
                         <TextBlock
-                            x:Name="TextBlockUserName"
-                            Style="{StaticResource StyleTextBlock}"
-                            Text="User Name">
+                    x:Name="TextBlockUserName"
+                    Style="{StaticResource StyleTextBlock}"
+                    Text="User Name">
                         </TextBlock>
-                      
+                       
                         <TextBox x:Name="TextBoxUserName"
-                                 Style="{StaticResource {x:Type TextBox}}"
-                                 Text="{Binding UserName, Mode=OneWayToSource}" 
-                                 TextChanged="TextBoxUserName_TextChanged">
+                                 LostFocus="UserName_OnLostFocus"
+                                 GotFocus="UserName_OnGotFocus"
+                    Style="{StaticResource {x:Type TextBox}}"
+                    Text="{Binding UserName, Mode=OneWayToSource}"
+                    >
+
+
                         </TextBox>
-                     
                         <TextBlock
                     x:Name="PasswordBoxInWindowLogin"
                     Style="{StaticResource StyleTextBlock}"
@@ -218,13 +221,15 @@
                              />
                 <Button  Command="{Binding Path=OkCommand}" 
                          CommandParameter="{Binding ElementName=TextPassword}">
+
                 </Button>-->
 
 
                         <PasswordBox  
                     Style="{StaticResource {x:Type PasswordBox}}"
                     x:Name="PasswordBoxInLoginWindow"
-                   
+                    LostFocus="PasswordBox_OnLostFocus"
+                    GotFocus="PasswordBox_OnGotFocus"
                     BorderBrush="Black"
                     Background="LightCyan"
                     Opacity="0.6" Height="28"
@@ -240,6 +245,7 @@
                         <!--<Button  Command="{Binding Path=OkCommand, Mode=TwoWay}" 
                          Visibility="Hidden"
                          CommandParameter="{Binding ElementName=PasswordBoxInLoginWindow}">
+
                     </Button>-->
                         <!--<PasswordBox Name="txtPassword" VerticalAlignment="Top" Width="120" />
                     <Button Content="Ok" Command="{Binding Path=OkCommand}"
@@ -340,3 +346,5 @@ Padding="5"
         </Grid>
     </Border>
 </Window>
+
+    

@@ -31,8 +31,7 @@ namespace PLWPF
 
         public LoginWindow()
         {
-
-            this.LoginExist = null;
+            LoginExist = null;
             MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
             App.numOfActivatedMainWindow++;
             FlowDirection = FlowDirection.LeftToRight;
@@ -91,17 +90,17 @@ namespace PLWPF
 
         private void SignIn_OnClick(object sender, RoutedEventArgs e)
         {
-            if (
-                TextBoxUserName.Background != Brushes.White && TextBoxUserName.BorderBrush != Brushes.Gray
-                || PasswordBoxInLoginWindow.Background != Brushes.White && PasswordBoxInLoginWindow.BorderBrush != Brushes.Gray 
-                ||TextBoxUserName.Text.Length == 0
-                || PasswordBoxInLoginWindow.Password.Length == 0)
-            {
-                MessageBox.Show("Some details you entered are incorrect, please try again", "Failed",
-                    MessageBoxButton.OK, MessageBoxImage.Information,
-                    MessageBoxResult.None);
-                return;
-            }
+            //if (
+            //    TextBoxUserName.Background != Brushes.White && TextBoxUserName.BorderBrush != Brushes.Gray
+            //    || PasswordBoxInLoginWindow.Background != Brushes.White &&
+            //    PasswordBoxInLoginWindow.BorderBrush != Brushes.Gray ||
+            //    TextBoxUserName.Text.Length == 0 || PasswordBoxInLoginWindow.Password.Length == 0)
+            //{
+            //    MessageBox.Show("Some details you entered are incorrect, please try again", "Failed",
+            //        MessageBoxButton.OK, MessageBoxImage.Information,
+            //        MessageBoxResult.None);
+            //    //return;
+            //}
 
             try
             {
@@ -171,19 +170,17 @@ namespace PLWPF
         #endregion
 
 
-
-
         #region user_name_pass
 
-        private void TxtBx_userName_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if (TextBoxUserName.Text.Length == 0 /*|| !Utilities.Validation.IsValidUserName(TextBoxUserName.Text)*/)
+        private void UserName_OnLostFocus(object sender, RoutedEventArgs e)
+            {
+            if (TextBoxUserName.Text.Length == 0/* || !Utilities.Validation.IsValidUserName(TextBoxUserName.Text)*/)
                 TextBoxUserName.Background = Brushes.IndianRed;
             else
                 TextBoxUserName.BorderBrush = Brushes.Green;
-        }
+            }
 
-        private void TxtBx_userName_GotFocus(object sender, RoutedEventArgs e)
+        private void UserName_OnGotFocus(object sender, RoutedEventArgs e)
         {
             TextBoxUserName.Background = Brushes.White;
             TextBoxUserName.BorderBrush = Brushes.Gray;
@@ -191,7 +188,7 @@ namespace PLWPF
 
         private void PasswordBox_OnLostFocus(object sender, RoutedEventArgs e)
         {
-            if (/*!Utilities.Validation.IsValidPassword(PasswordBoxInLoginWindow.Password)*/PasswordBoxInLoginWindow.Password.Length <=5)
+            if (/*!Utilities.Validation.IsValidPassword(PasswordBoxInLoginWindow.Password)*/PasswordBoxInLoginWindow.Password.Length <=3)
                 PasswordBoxInLoginWindow.Background = Brushes.IndianRed;
             else
                 PasswordBoxInLoginWindow.BorderBrush = Brushes.Green;
@@ -221,10 +218,8 @@ namespace PLWPF
             RegisterAsAHosst.Visibility = Visibility;
         }
 
-        private void TextBoxUserName_TextChanged(object sender, TextChangedEventArgs e)
-        {
 
-        }
+
     }
 
 }

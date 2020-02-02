@@ -674,14 +674,36 @@ namespace IDAL
 
         public bool IsUsernameMatchPassword(Login loginDetails, string authorizationType)
         {
-            return ((authorizationType == "SiteOwner") && (_SiteOwner.OwnerLogin.UserName == loginDetails.UserName) &&
-                    (_SiteOwner.OwnerLogin.Password == loginDetails.Password) || authorizationType == "Host") &&
-                   (_hosts.Any(userName =>
-                        userName.HostInfo.LoginDetails.UserName == loginDetails.UserName &&
-                        userName.HostInfo.LoginDetails.Password == loginDetails.Password) ||
-                    authorizationType == "Customer" && _customers.Any(userName =>
-                        userName.ClientInfo.LoginDetails.UserName == loginDetails.UserName &&
-                        userName.ClientInfo.LoginDetails.Password == loginDetails.Password));
+
+            if (authorizationType == "SiteOwner")
+            {
+                if (_SiteOwner.OwnerLogin.UserName == loginDetails.UserName &&
+                    _SiteOwner.OwnerLogin.Password == loginDetails.Password)
+                    return true;
+            }
+            else if(authorizationType == "Host")
+            {
+                if (_hosts.Any(userName => userName.HostInfo.LoginDetails.UserName == loginDetails.UserName
+                                           && userName.HostInfo.LoginDetails.Password == loginDetails.Password))
+                    return true;
+            }
+            else if (authorizationType == "Customer")
+            {
+                if (_customers.Any(userName => userName.ClientInfo.LoginDetails.UserName == loginDetails.UserName
+                                               && userName.ClientInfo.LoginDetails.Password == loginDetails.Password))
+                    return true;
+            }
+
+            return false;
+
+            //return ((authorizationType == "SiteOwner") && (_SiteOwner.OwnerLogin.UserName == loginDetails.UserName) &&
+            //        (_SiteOwner.OwnerLogin.Password == loginDetails.Password) 
+            //        || authorizationType == "Host") && (_hosts.Any(userName =>
+            //            userName.HostInfo.LoginDetails.UserName == loginDetails.UserName &&
+            //            userName.HostInfo.LoginDetails.Password == loginDetails.Password) ||
+            //        authorizationType == "Customer" && _customers.Any(userName =>
+            //            userName.ClientInfo.LoginDetails.UserName == loginDetails.UserName &&
+            //            userName.ClientInfo.LoginDetails.Password == loginDetails.Password));
         }
 
 

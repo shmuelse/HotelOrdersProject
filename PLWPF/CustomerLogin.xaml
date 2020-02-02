@@ -268,7 +268,6 @@
                     Style="{StaticResource StyleTextBlock}"
                     FontSize="12">User Name</TextBlock>
                 <TextBox
-                    
                     Style="{StaticResource {x:Type TextBox}}"
                     Text="{Binding ClientInfo.LoginDetails.UserName, UpdateSourceTrigger=LostFocus}"
                     x:Name="userName"
